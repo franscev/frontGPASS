@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Colores</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="main.js"></script>
+
+</head>
+<body>
+	<h1 id='header' class=''>Hola Mundo</h1>
+	<div id='container'></div>
+	<button id='buttonBlue' onclick='blue()'>Blue</button>
+	<button id='buttonRed'>Red</button>
+	<button id='buttonGreen' onclick='green()'>Green</button>
+
+</body>
+<script type="text/javascript">
+
+	$(document).ready(function() {
+		$('#buttonBlue').click(function(){
+			//$('#container').text('hola mundo');
+		});
+	});
+
+	$(document).ready(function() {
+		$('#buttonGreen').click(function(){
+			//$('#container').text('hola mundo');
+		});
+	});
+
+	$(document).ready(function() {
+		$('#buttonRed').click(function(){
+			red();
+		});
+	});
+
+	function blue(){
+		$('#header').removeClass();
+		$('#header').addClass('red');
+	
+	}
+
+	function red(){
+		$('#header').removeClass();
+		$('#header').addClass('green');
+	
+	}
+
+	function green(){
+		$('#header').removeClass();
+		$('#header').addClass('blue');
+
+
+		
+	}
+
+</script>
+</html>

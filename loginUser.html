@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Front</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="main.js"></script>
+
+</head>
+<body>
+	<h1 id='header' class='green'>Login</h1>
+
+	<form role="form">
+
+
+  		<div class="form-group">
+   	 		<label for="email">Email:</label>
+    		<input type="email" class="form-control" id="email">
+  		</div>
+
+  	</br>
+
+  		<div class="form-group">
+    		<label for="pass">Password:</label>
+    		<input type="password" class="form-control" id="pass">
+ 		 </div>
+
+ 	</br>
+
+    </div>
+
+	
+	<button id='button' onclick='addUser()'>Login</button>
+
+</body>
+<script type="text/javascript">
+
+	$(document).ready(function() {
+		$('#button').click(function(){
+		});
+	});
+
+	function addUser(){
+
+		var email = document.getElementById("email").value;
+		console.log(email)
+		var pass = document.getElementById("pass").value;
+		console.log(pass)
+
+		$.ajax({
+			url: "http://localhost:8888/GPASS/public/index.php/api/user/login",
+			type: 'POST',
+			data:{'email': email, 'password': pass}
+			});
+
+	}
+
+	
+
+</script>
+</html>
