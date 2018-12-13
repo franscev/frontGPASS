@@ -4,7 +4,7 @@
 	<title>Login Front</title>
 	<link rel="stylesheet" type="text/css" href="main.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="main.js"></script>
+	
 
 </head>
 <body>
@@ -30,17 +30,19 @@
     </div>
 
 	
-	<button id='button' onclick='addUser()'>Login</button>
+	<button id='button'>Login</button>
 
 </body>
 <script type="text/javascript">
 
 	$(document).ready(function() {
 		$('#button').click(function(){
+			echo
+		loginUser();
 		});
 	});
 
-	function addUser(){
+	function loginUser(){
 
 		var email = document.getElementById("email").value;
 		console.log(email)
@@ -50,12 +52,17 @@
 		$.ajax({
 			url: "http://localhost:8888/GPASS/public/index.php/api/user/login",
 			type: 'POST',
-			data:{'email': email, 'password': pass}
-			});
-
+			data:{
+				'email': email,
+				'password': pass
+		},	
+		succes: function(response){
+			console.log(response);
+		},
+		error: function(response){
+			console.log(response);
+			}
+		});
 	}
-
-	
-
 </script>
 </html>

@@ -4,7 +4,7 @@
 	<title>Register Front</title>
 	<link rel="stylesheet" type="text/css" href="main.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="main.js"></script>
+
 
 </head>
 <body>
@@ -36,34 +36,45 @@
     </div>
 
 	
-	<button id='button' onclick='addUser()'>Add User</button>
+	<button id='button'>Add User</button>
 
 </body>
 <script type="text/javascript">
 
 	$(document).ready(function() {
 		$('#button').click(function(){
+			addUser();
 		});
 	});
 
 	function addUser(){
 
 		var name = document.getElementById("name").value;
-		console.log(name)
+		console.log(name);
 		var email = document.getElementById("email").value;
-		console.log(email)
+		console.log(email);
 		var pass = document.getElementById("pass").value;
-		console.log(pass)
+		console.log(pass);
 
 		$.ajax({
 			url: "http://localhost:8888/GPASS/public/index.php/api/user/register",
 			type: 'POST',
-			data:{'name': name, 'email': email, 'password': pass}
-			});
-
+			data:{
+				'name': name,
+				'email': email,
+				'password': pass
+			},
+			succes: function(response){
+				echo ("se ha registrado");
+				console.log(response);
+			},
+			error: function(response){
+				echo ("ha fallado el reistro");
+				console.log(response);
+			}
+		});
 	}
 
 	
-
 </script>
 </html>
